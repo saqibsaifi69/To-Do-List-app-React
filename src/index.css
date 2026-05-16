@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px) scale(0.95); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes titleGlow {
+  0%, 100% { text-shadow: 0 0 10px rgba(255,215,0,0.4), 0 2px 8px rgba(0,0,0,0.2); transform: scale(1); }
+  50% { text-shadow: 0 0 25px rgba(255,215,0,0.9), 0 0 50px rgba(255,215,0,0.4); transform: scale(1.04); }
+}
+
+@keyframes borderDance {
+  0%, 100% { border-color: rgba(255,255,255,0.3); }
+  50% { border-color: #FFD700; }
+}
+
+@keyframes bgShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+.to-do-list {
+  max-width: 480px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(270deg, #667eea, #764ba2, #f64f59, #c471ed);
+  background-size: 400% 400%;
+  animation: fadeInDown 0.7s ease, bgShift 8s ease infinite;
+  border-radius: 24px;
+  font-family: sans-serif;
+}
+
+.to-do-list h1 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  animation: titleGlow 2.5s ease-in-out infinite;
+}
+
+.to-do-list > div {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.to-do-list input[type="text"] {
+  flex: 1;
+  padding: 12px 18px;
+  font-size: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 50px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  outline: none;
+  animation: borderDance 3s ease infinite;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.to-do-list input::placeholder {
+  color: rgba(255,255,255,0.65);
+}
+
+.to-do-list input:focus {
+  background: rgba(255,255,255,0.32);
+  transform: scale(1.03);
+  animation: none;
+  border-color: #FFD700;
+}
+
+.add-button {
+  padding: 12px 22px;
+  font-size: 14px;
+  font-weight: 700;
+  background: #FFD700;
+  color: #5a3e00;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  animation: floatUp 2s ease-in-out infinite;
+  transition: transform 0.15s, box-shadow 0.2s;
+}
+
+.add-button:hover {
+  background: #FFC200;
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255,215,0,0.5);
+}
+
+.add-button:active {
+  transform: scale(0.95);
+}
+
+.to-do-list ol {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.to-do-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.3);
+  animation: slideIn 0.4s ease;
+  transition: background 0.3s, transform 0.25s, box-shadow 0.25s;
+}
+
+.to-do-list li:hover {
+  background: rgba(255,255,255,0.28);
+  transform: translateX(8px) scale(1.02);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.text {
+  flex: 1;
+  font-size: 15px;
+  color: #fff;
+  font-weight: 500;
+  transition: letter-spacing 0.3s;
+}
+
+.to-do-list li:hover .text {
+  letter-spacing: 0.5px;
+}
+
+.delete-button {
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #ff5f6d;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.delete-button:hover {
+  background: #e0313f;
+  transform: scale(1.15) rotate(-3deg);
+  box-shadow: 0 4px 12px rgba(255,95,109,0.5);
+}
+
+.delete-button:active {
+  transform: scale(0.9);
+}
+
+.move-button {
+  padding: 6px 11px;
+  font-size: 14px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.move-button:hover {
+  background: rgba(255,255,255,0.4);
+  transform: scale(1.2);
+}
+
+.move-button:active {
+  transform: scale(0.85);
+}
